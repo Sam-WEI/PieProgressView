@@ -33,6 +33,15 @@ class PieView: UIView {
         }
     }
     
+    var progress: Float {
+        get {
+            return Float(ringProgress / 100)
+        }
+        set {
+            ringProgress = CGFloat(newValue * 100)
+        }
+    }
+    
     var percentageLayer: CATextLayer!
     @IBInspectable var showPercentage: Bool = true {
         didSet {

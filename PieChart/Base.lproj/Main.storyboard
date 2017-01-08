@@ -18,41 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D6-g0-AaR" customClass="PieView" customModule="PieChart" customModuleProvider="target">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="fIy-mB-ks5"/>
-                                    <constraint firstAttribute="width" constant="300" id="rCj-5b-Qdk"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="abstract-20"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
-                                        <color key="value" red="1" green="0.2051392886" blue="0.067782267339999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="percentagePosition">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="percentageColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showPercentage" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ringProgress">
-                                        <real key="value" value="62"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="ringColor">
-                                        <color key="value" red="1" green="0.79405395609999996" blue="0.06313919456" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tm3-8b-Glj">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D6-g0-AaR" customClass="PieView" customModule="PieChart" customModuleProvider="target">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="fIy-mB-ks5"/>
+                                            <constraint firstAttribute="width" constant="300" id="rCj-5b-Qdk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="abstract-20"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
+                                                <color key="value" red="1" green="0.2051392886" blue="0.067782267339999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="percentagePosition">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="percentageColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showPercentage" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="ringProgress">
+                                                <real key="value" value="62"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="ringColor">
+                                                <color key="value" red="1" green="0.79405395609999996" blue="0.06313919456" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ygU-Pe-P6I">
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="pNw-K7-6t9"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5D6-g0-AaR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UJ7-H6-1PN"/>
-                            <constraint firstItem="5D6-g0-AaR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="V6g-oC-9Jm"/>
+                            <constraint firstItem="tm3-8b-Glj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Fg-DF-cR4"/>
+                            <constraint firstItem="tm3-8b-Glj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mma-Th-jrI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pieView" destination="5D6-g0-AaR" id="tVJ-6C-OG2"/>
+                        <outlet property="slider" destination="ygU-Pe-P6I" id="Vtl-qh-90E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
